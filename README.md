@@ -1,59 +1,92 @@
-layout_ans2.addWidget(rbtn_1)
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import (QApplication, QWidget, QHBoxLayout, QVBoxLayout, QRadioButton,
+                            QLabel, QButtonGroup, QGroupBox, QPushButton, QSpinBox, QMessageBox)
 
-30
+class CasinoGame(QWidget):
+    def init(self):
+        super().init()
 
-Layout_ans2.addWidget(rbtn_12)
+        self.setWindowTitle("Казино")
+        self.resize(400, 400)
 
-31
+        self.qtext = QLabel()
+        self.v_line = QVBoxLayout()
 
-main_win.setLayout(v_line)
+        self.rbtn_1 = QRadioButton('1991')
+        self.rbtn_2 = QRadioButton('1989')
+        self.rbtn_3 = QRadioButton('1998')
+        self.rbtn_4 = QRadioButton('1992')
 
-32
+        self.RadioGroupBox = QGroupBox('Baрiaнти відповідей')
+        self.RadioGroup = QButtonGroup()
+        self.RadioGroup.addButton(self.rbtn_1)
+        self.RadioGroup.addButton(self.rbtn_2)
+        self.RadioGroup.addButton(self.rbtn_3)
+        self.RadioGroup.addButton(self.rbtn_4)
 
-33
+        self.Layout_ans1 = QHBoxLayout()
+        self.Layout_ans2 = QVBoxLayout()
+        self.Layout_ans3 = QVBoxLayout()
 
-34
+        self.Layout_ans2.addWidget(self.rbtn_1)
+        self.Layout_ans2.addWidget(self.rbtn_2)
+        self.Layout_ans3.addWidget(self.rbtn_3)
+        self.Layout_ans3.addWidget(self.rbtn_4)
 
-35
+        self.btn_Menu = QPushButton("Меню")
+        self.btn_Sleep = QPushButton("Відпочити")
+        self.box_Minutes = QSpinBox()
+        self.box_Minutes.setValue(30)
+        self.btn_Ok = QPushButton("Відповісти")
 
-20
+        self.Layout_line1 = QHBoxLayout()
+        self.Layout_line2 = QHBoxLayout()
+        self.Layout_line3 = QHBoxLayout()
+        self.Layout_line4 = QHBoxLayout()
 
-41
+        self.Layout_line1.addWidget(self.btn_Menu)
+        self.Layout_line1.addWidget(self.btn_Sleep)
+        self.Layout_line1.addWidget(self.box_Minutes)
 
-12
+        self.Layout_line2.addWidget(self.qtext, alignment=Qt.AlignVCenter)
+        self.Layout_line3.addWidget(self.RadioGroupBox)
+        self.Layout_line4.addWidget(self.btn_Ok, alignment=Qt.AlignVCenter)
 
-13
+        self.Layout_card = QVBoxLayout()
+        self.Layout_card.addLayout(self.Layout_line1)
+        self.Layout_card.addLayout(self.Layout_line2)
+        self.Layout_card.addLayout(self.Layout_line3)
+        self.Layout_card.addLayout(self.Layout_line4)
 
-14
+        self.Layout_ans1.addLayout(self.Layout_ans2)
+        self.Layout_ans1.addLayout(self.Layout_ans3)
+        self.RadioGroupBox.setLayout(self.Layout_ans1)
 
-25
+        self.btn_Menu.clicked.connect(self.open_menu_window)
 
-16
+        self.setLayout(self.Layout_card)
 
-17
+    def open_menu_window(self):
+        self.menu_window = MenuWindow(self)
+        self.menu_window.show()
 
-19
+class MenuWindow(QWidget):
+    def init(self, parent):
+        super().init()
+        self.parent = parent  # Посилання на головне вікно
+        self.setWindowTitle("Меню")
+        self.setGeometry(100, 100, 400, 300)
 
-20
+        # Додайте решту коду для створення вікна "Меню" з полями, кнопками та обробниками подій, як в попередньому коді.
 
-21
+        # Приклад:
+        self.add_question_button = QPushButton("Додати запитання")
+        self.add_question_button.clicked.connect(self.add_question)
 
-22
+        # Вам потрібно також додати логіку для збереження запитань та відповідей, а також для відображення статистики.
 
-23
-
-24
-
-dd
-
-dd
-
-ddB
-
-ddB
-
-tant-sect3/in/python /Users
-
-nain_win.show()
-
-app.exec_0
+if name == "main":
+    app = QApplication([])
+    main_win = CasinoGame()
+    main_win.show()
+    app.exec_()
