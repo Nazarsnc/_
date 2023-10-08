@@ -115,3 +115,19 @@ main_win.show()
 58
 
 app.exec_(
+
+stat title =QLabel(rake)
+
+amount atempt QLabel(Paie ii)
+
+amount_correct QLabel('BigHnx signonias')
+
+sucsessful = QLabel('Yeni icrь')
+
+stat Lines QVBoxLayout()
+
+stat line.addWidget(stat_title alignment=Qt.AlignLeft) stat_line.addWidget(amount atempt_alignment=Qt.AlignLeft)
+
+stat line.addWidget(anount_correct alignment Qt.AlignLeft)
+
+stat line.addWidget(sucsessful,alignment Qt.AlignLeft
