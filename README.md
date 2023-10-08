@@ -1,4 +1,4 @@
-question label = QLabel('BOCAL CASH!!)
+hiquestion label = QLabel('BOCAL CASH!!)
 
 corect_answer_label = QLabel( BALL BEAWAREY BARRI
 
@@ -78,3 +78,40 @@ Line2.addWidget(corect answer_label)
 Line2.add#idget
 
 main_win.setLayout(Line1)
+btn_add = QPushButton('Дедати запитання")
+
+49
+
+btn_clean = QPushButton('QuaINTH')
+
+50
+
+Line6 = QHBoxLayout()
+
+52
+
+Line6.addWidget(btn_add)
+
+52
+
+Line6.addWidget(btn_clean)
+
+53
+
+edit_layout.addLayout(Line6)
+
+54
+
+55
+
+main_win.setLayout(edit_layout)
+
+56
+
+57
+
+main_win.show()
+
+58
+
+app.exec_(
