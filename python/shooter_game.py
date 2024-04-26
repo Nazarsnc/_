@@ -14,7 +14,7 @@ lose = font2.render('YOU LOSE!', True, (180, 0, 0))
 
 
 img_back = "galaxy.jpg"
-img_hero = "ggg.png"
+img_hero = "specnaz.png"
 img_enemy = "pngegg.png"
 img_asteroid = "1234-transformed.png"
 
@@ -107,11 +107,7 @@ while run:
     if not finish:
         window.blit(background, (0, 0))
 
-        text = font1.render("Рахунок" + str(score),1, (255,255,255))
-        window.blit(text,(10, 20))
 
-        text_lose = font1.render("Пропущенно:" + str(lost),1, (255, 255, 255))
-        window.blit(text_lose, (10, 50))
 
         ship.update()
         monsters.update()
@@ -147,6 +143,16 @@ while run:
         if lost >= max_lost or life == 0:
             finish = True
             window.blit(lose, (200, 200))
+
+        text = font1.render("Рахунок" + str(score), 1, (255, 255, 255))
+        window.blit(text, (10, 20))
+
+        text_lose = font1.render("Пропущенно:" + str(lost), 1, (255, 255, 255))
+        window.blit(text_lose, (10, 50))
+
+        text_life = font1.render(str(life), 1, (0, 150, 0))
+        window.blit(text_life, (650, 10))
+
 
         display.update()
 
